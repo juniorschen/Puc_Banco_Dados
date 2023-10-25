@@ -1,0 +1,19 @@
+<ActionBar title="Cadastro de Robozinhos">
+  <ActionItem position="right" icon="font://&#xf067;" class="fal" style="font-size: 22sp;" (tap)="addRobozinho()"></ActionItem>
+
+  <!-- <ActionItem position="right" icon="font://&#xf067;" class="fal" style="font-size: 22sp;" (tap)="invoke()"></ActionItem> -->
+</ActionBar>
+
+<GridLayout>
+  <StackLayout *ngIf="items.length === 0" verticalAlignment="center" horizontalAlignment="center">
+    <Label text="Sem itens para mostrar" verticalAlignment="center"
+      horizontalAlignment="center"></Label>
+  </StackLayout>
+  <ListView *ngIf="items.length > 0" [items]="items">
+    <ng-template let-item="item">
+      <StackLayout [nsRouterLink]="['/item', item.Id]">
+        <Label [text]="item.Nome"></Label>
+      </StackLayout>
+    </ng-template>
+  </ListView>
+</GridLayout>

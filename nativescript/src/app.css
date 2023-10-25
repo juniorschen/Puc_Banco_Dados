@@ -1,0 +1,11 @@
+@import '@nativescript/theme/css/core.css';
+@import '@nativescript/theme/css/default.css';
+
+.fal {
+  font-family: Font Awesome 5 Pro, fa-light-300;
+  font-weight: 300; 
+}
+
+Button.-primary {
+  font-size: 18;
+}

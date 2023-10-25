@@ -1,0 +1,23 @@
+<ActionBar title="{{isEditing ? 'Atualizar Robozinho' : 'Criar Robozinho'}}">
+    <ActionItem position="right" icon="font://&#xf0c7;" class="fal" style="font-size: 22sp;" (tap)="save()">
+    </ActionItem>
+    <ActionItem *ngIf="isEditing" position="right" icon="font://&#xf1f8;" class="fal" style="font-size: 22sp;"
+        (tap)="delete()"></ActionItem>
+</ActionBar>
+
+<ScrollView>
+    <GridLayout [formGroup]="form" rows="40, 40, 40, 40, auto, auto">
+        <Label row="0" text="Cadastrar Nome" style="padding: 6dp;"></Label>
+        <TextField row="1" formControlName="Nome" style="padding: 0;">
+        </TextField>
+    
+        <Label row="2" text="Cadastrar Peso" style="padding: 6dp;"></Label>
+        <TextField row="3" formControlName="Peso" keyboardType="number" style="padding: 0;">
+        </TextField>
+    
+        <Button row="4" text="Escolher Imagem" (tap)="onSelectSingleTap()"
+            class="bg-[#20293A] rounded-full text-white text-lg ml-3"></Button>
+    
+        <Image *ngIf="imageSrc" row="5" [src]="imageSrc" [width]="previewSize" [height]="previewSize" stretch="aspectFit"></Image>
+    </GridLayout>
+</ScrollView>
